@@ -1,0 +1,31 @@
+Regarding directory names and file information in the dataset:
+
+
+The directory names generally represent the information regarding the specific data points in the dataset.
+
+It always begins by indicating whether the information is from the initial training or a given iteration (iter*).
+The initial training dataset is followed by the T*, where the value after T represents the temperature which the DFT NVT were done.
+
+
+Directories with mp-*/cubic/orthorhombic/tetragonal in their names indicates the specific structures. These ID corresponds to the Materials Project ID or lattice of the structure. Please check the Paper and Supplementary Information of the paper for more details.
+
+
+Directories with *dist* refers to the system size and distortion:
+B222 -- refers to 2x2x2 supercells
+dist* -- refers to the magnitude of the distortion, 01 = 1.0%
+*_<number> -- refers to the distortion direction, refer to the paper for details
+
+
+For the active learning directories (iter*), after the directory names with distortion details, the directory following it describes the temperature (3-4 digit value). And the directory further below it refers to an arbitrary number that refers to the sequence when the given configuration was marked as needing to be calculated with DFT.
+
+The directory ssschf followed by set.000 refers to the directories before the dataset information. 
+The "type.raw refers to the order of the element in the calculation for ATiO3 perovskite, i.e., 0 = A, 1 = Ti, 2 = O.
+
+Finaly the *.npy files refer to the DFT NVT MD information. 
+box.npy = lattice information
+coord.npy = atomic coordinates
+energy.npy = energy of the system
+force.npy = forces of the system
+virial.npy = virials of the system
+
+If you would like to convert these files into human readable text format or any other format, please use the numpy library (https://numpy.org/). Refer to the function numpy.fromfile (https://numpy.org/doc/stable/reference/generated/numpy.fromfile.html) for more information. 

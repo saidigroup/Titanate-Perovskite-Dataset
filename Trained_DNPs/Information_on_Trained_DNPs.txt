@@ -1,0 +1,9 @@
+These directories contain trained DNPs from the datasets, ready to be used. 
+
+These potentials are under the name *.pb.
+
+As discussed in the paper, each titanate perovskite is an ensemble of three potentials for training purpose; for a practical use any of them should perform roughly at a similar level.
+
+out.json contains the training information and hyperparameters used to train the potential. Please be sure to edit the path to the dataset before re-using these files.
+
+lcurve.out contains the training output and shows generally how well a given potential was trained.
